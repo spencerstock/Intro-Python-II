@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
@@ -38,6 +39,50 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
+print("Welcome to Balrog MUD")
+username = input("Please enter your username: ")
+player1 = Player(username, room['outside'])
+
+while True:
+
+    print(player1.room)
+    command = input("> ")
+    if (command == "q"):
+        print("quitting")
+        break
+
+    elif (command == "e"):
+            if (isinstance(player1.room.e_to, Room)):
+                print(player1.name + " moves East")
+                player1.room = player1.room.e_to
+            else:
+                print("You can't go that direction")
+
+    elif (command == "w"):
+        if (isinstance(player1.room.w_to, Room)):
+                print(player1.name + " moves West")
+                player1.room = player1.room.w_to
+        else:
+            print("You can't go that direction")
+    
+    elif (command == "s"):
+        if (isinstance(player1.room.s_to, Room)):
+                print(player1.name + " moves South")
+                player1.room = player1.room.s_to
+        else:
+            print("You can't go that direction")
+
+    elif (command == "n"):
+        if (isinstance(player1.room.n_to, Room)):
+                print(player1.name + " moves North")
+                player1.room = player1.room.n_to
+        else:
+            print("You can't go that direction")
+
+    else:
+        print("What?")
+        
+    
 
 # Write a loop that:
 #
