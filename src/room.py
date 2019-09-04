@@ -9,8 +9,10 @@ class Room:
         self.description = description
 
     def __str__(self):
-
-        return f'room: {self.name}, description: {self.description}'
+        s = f'room: {self.name}, description: {self.description}'
+        for i in self.items:
+            s += "\nThere is one " + i.name
+        return s
 
     def __repr__(self):
         pass
@@ -23,3 +25,4 @@ class Room:
     s_to = str
     e_to = str
     w_to = str 
+    items = []

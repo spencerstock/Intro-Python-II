@@ -1,5 +1,6 @@
 from room import Room
 from player import Player
+from item import Item
 
 # Declare all the rooms
 
@@ -22,10 +23,23 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 
+items = {
+    'dagger': Item("Small Dagger", 
+                    "It fits in the palm of your hand",
+                    1),
+    'sword': Item("Small Sword", 
+                    "Looks like a child's toy",
+                    1)
+}
+
+
+
+
 
 # Link rooms together
 
 room['outside'].n_to = room['foyer']
+room['outside'].items.append(items['dagger'])
 room['foyer'].s_to = room['outside']
 room['foyer'].n_to = room['overlook']
 room['foyer'].e_to = room['narrow']
@@ -47,6 +61,7 @@ while True:
 
     print(player1.room)
     command = input("> ")
+
     if (command == "q"):
         print("quitting")
         break
@@ -83,6 +98,7 @@ while True:
         print("What?")
         
     
+        
 
 # Write a loop that:
 #

@@ -10,3 +10,6 @@ class Player:
     def __str__(self):
 
         return f'character: {self.name}, location: {str(self.room)}'
+
+
+    items = []
